@@ -1,21 +1,22 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
   return <div>
-<header className="px-[30px] py-[10px] bg-slate-700 flex justify-between items-center">
-  <div className="bg-slate-700">
-  <img src="./src/assets/logo.png" alt="logo" className="w-[150px]"/>
+<header className="px-[30px] py-[10px] bg-gray-10 flex justify-between items-center font-urbanist">
+  <div className="">
+  <Link to="/"><img src="./src/assets/logo.png" alt="logo" className="w-[150px]"/></Link>
   </div>
 
   <form action="">
-    <input type="text" name="Search" placeholder="Search..." id="" className=" focus:outline-none bg-slate-600 p-2 w-[150px] lg:w-[200px] rounded-[50px] placeholder-slate-500 " />
+    <input type="text" name="Search" placeholder="Search..." id="" className="border border-gray-15  focus:outline-none bg-gray-08 p-2 w-[150px] lg:w-[200px] rounded-[10px] placeholder-slate-500 " />
   </form>
   <div>
-    <ul className="flex gap-5">
-      <li className="hover:text-slate-400 " >Home</li>
-      <li className="hover:text-slate-400">About</li>
-      <li className="hover:text-slate-400">Sign</li>
+    <ul className="flex gap-5  text-white ">
+      <li className="hover:text-gray-20"><Link to="/">Home</Link></li>
+      <li className="hover:text-gray-20"><Link to="/about">About</Link></li>
+      <li className="hover:text-gray-20"><Link to="/sign-in">SignIn</Link></li>
     </ul>
   </div>
 </header>

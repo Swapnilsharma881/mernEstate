@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Properties() {
   return (
-    <div>Properties</div>
+    <div className="font-urbanist">Properties</div>
   )
 }
