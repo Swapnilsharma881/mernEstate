@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
+import authRouter from "./routes/auth.route.js";
 
 //Hiding Credential Using .env 
 dotenv.config();
@@ -24,6 +25,8 @@ const port = process.env.PORT || 5000;
 //Complete
 
 //root endpoint
+app.use(express.json());
+app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 
 //Complete
