@@ -13,7 +13,7 @@ module.exports = {
         'purple-90': '#FFE4CC',
         'purple-75': '#FFCA99',
         'purple-70': '#FF9533',
-        'purple-60': '#FF7A00',
+        'purple-60': '#703BF7',
         'purple-65': '#1A64FF',
         
         // White Shade
