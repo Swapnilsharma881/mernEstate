@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   // Handling changes in the form field
   const handleChange = (e) => {
@@ -34,8 +35,10 @@ export default function SignUp() {
       if (!res.ok) {
         throw new Error(data.message || 'Something went wrong');
       }
-
       console.log(data);
+      navigate('/sign-in')
+      
+
     } catch (err) {
       setError(err.message);
     } finally {
