@@ -38,3 +38,17 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 //Completeapp.use('/api/user', userRouter)
+
+
+//middleWare
+app.use((err, req, res, next) =>{
+  const statusCode = err.statusCode || 50;
+  const message = err.message || 'sorry we fucked it up...';
+  return res
+  .status(statusCode)
+  .json({
+    success : false,
+    statusCode : statusCode,
+    message: message,
+  });
+});
