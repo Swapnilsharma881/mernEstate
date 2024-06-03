@@ -22,10 +22,10 @@ export default function SignUp() {
     setError(null); // Clear any previous errors
 
     try {
-      const res = await fetch('/api/auth/signup', {
-        method: 'POST',
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -33,12 +33,10 @@ export default function SignUp() {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || 'Something went wrong');
+        throw new Error(data.message || "Something went wrong");
       }
       console.log(data);
-      navigate('/sign-in')
-      
-
+      navigate("/sign-in");
     } catch (err) {
       setError(err.message);
     } finally {
