@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { signInStart, signInFailure, signInSuccess } from "../redux/user/userSlicer.js";
 
 export default function signIn() {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  const {error, loading} = useSelector((state) => state.user);
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   // Handling changes in the form field
@@ -18,8 +22,8 @@ export default function signIn() {
   // On submit logic with error handling
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null); // Clear any previous errors
+    dispatch(signInStart());
+    // Clear any previous errors
 
     try {
       
@@ -36,15 +40,16 @@ export default function signIn() {
           
         }
         console.log(data);
-        navigate("/home");
+        navigate("/");
+        dispatch(signInSuccess(data));
       
       
 
       
     } catch (err) {
-      setError(err.message);
+      dispatch(signInFailure(err.message));
     } finally {
-      setLoading(false);
+      
     }
   };
 
