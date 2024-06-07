@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
     password:{
         type :String,
         required:true,
+    },
+    avatar : {
+        type : String,
+        default : "https://marketplace.canva.com/EAFqNrAJpQs/1/0/1600w/canva-neutral-pink-modern-circle-shape-linkedin-profile-picture-WAhofEY5L1U.jpg",
     }
 },{timestamps:true});
 

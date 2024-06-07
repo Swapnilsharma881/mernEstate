@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Oauth from "../components/OAuth.jsx";
+
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -85,6 +87,7 @@ export default function SignUp() {
           type="submit"
           value="Sign up"
         />
+        <Oauth/>
         {error && <div className="text-red-500">{error}</div>}
         {loading && <div className="text-gray-500">Loading...</div>}
         <h4 className="text-white">
